@@ -1,0 +1,40 @@
+﻿M model C# classes that you use for your views
+V view
+C controller talks with the service-> repository->database
+once you get the information, it comes with model, services and the service will be shared with controller
+
+HTTP methods
+GET =>
+POST 
+PUT
+DELETE
+
+
+ Code Maintenable =>
+
+ Reusable => class library project
+
+ Hard dependency 
+ Loose dependency: we want this
+
+ ENTITY
+ all your data
+
+
+ Models
+ the info you want to appear in views.
+
+ Repository COntracts
+ -interface to define contracts -> infrastucture will implement
+ -Data access logic
+
+ Service Contracts
+ -Business Logic =>
+ Create Shipping Lable,
+ Calculate Tax,
+ Register user with Password Hashing
+ Send Confirmation email
+
+ InvalidCreditcardException
+ 
+

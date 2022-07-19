@@ -1,0 +1,18 @@
+﻿
+@model List<ApplicationCore.Models.MovieCardModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!--model will hold information from homecontroller-->
+@foreach(var movieCard in Model){
+
+    <h2>
+        @movieCard.Id
+    </h2>
+
+    <h3>
+        @movieCard.Title
+    </h3>
+}
