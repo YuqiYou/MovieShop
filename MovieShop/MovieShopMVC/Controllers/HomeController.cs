@@ -1,4 +1,5 @@
-﻿using Infrastructure.Services;
+﻿using ApplicationCore.ServiceContracts;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using MovieShopMVC.Models;
 using System.Diagnostics;
@@ -8,13 +9,17 @@ namespace MovieShopMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IMovieService _movieService;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(ILogger<HomeController> logger, IMovieService movieService)
         {
             _logger = logger;
+            _movieService = movieService;
+            //_movieService = new MovieService();
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
 
             //Home page
@@ -25,8 +30,8 @@ namespace MovieShopMVC.Controllers
             //call the service and call the repository
             //passing data from controller/action methods to views, through C# models
 
-            var movieService = new MovieService();
-            var movieCards = movieService.GetTopRevenueMovies();
+           // var movieService = new MovieService();
+            var movieCards = await _movieService.GetTopRevenueMovies();
             return View(movieCards);
         }
 
